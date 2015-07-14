@@ -1,0 +1,33 @@
+Cross-compiling SDL for the Ubuntu Phone is possible, and fairly simple.
+
+1) Install the Ubuntu SDK
+
+
+2) Create a development chroot:
+	$ sudo click chroot -a armhf -f ubuntu-sdk-15.04 create
+
+
+3) Install the necessary build dependencies inside the chroot:
+	$ sudo click chroot -a armhf -f ubuntu-sdk-15.04 maint
+	# apt-get install libxkbcommon-dev:armhf libdbus-1-dev:armhf
+
+
+4) Obtain the SDL2 sources from mercurial or a tarball. The sources for the supplied SDL2 build are included in this repo and were obtained from mercurial on 2015-05-22.
+
+
+5) Extract the SDL2 tarball to a temporary location.
+	$ tar -xzvf SDL2-2.0.4.tar.gz -C /tmp/
+
+
+6) Build SDL2 using the chroot.
+	$ cd /tmp/SDL2-2.0.4/
+	$ mkdir build
+	$ cd build
+	$ click chroot -a armhf -f ubuntu-sdk-15.04 run PKG_CONFIG_PATH=/usr/lib/arm-linux-gnueabihf/pkgconfig/ ../configure --host=arm-linux-gnueabihf CFLAGS="-g -O0" --disable-mir-shared --disable-video-opengl --disable-video-wayland --disable-video-x11
+	$ click chroot -a armhf -f ubuntu-sdk-15.04 run make -j4
+
+	In this example the generated files will be available under /tmp/SDL2-2.0.4/build/build/.libs
+
+
+
+TODO: this builds a very minimal SDL. Please experiment with additional audio drivers etc and feed back whether they work. Thanks.

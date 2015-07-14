@@ -1,0 +1,15 @@
+{
+    "architecture": "@CLICK_ARCH@",
+    "description": "An SDL2 GLES2 demo application for Ubuntu Touch",
+    "framework": "ubuntu-sdk-15.04",
+    "hooks": {
+        "sdl2-gles2-template": {
+            "apparmor": "sdl2-gles2-template.apparmor",
+            "desktop": "sdl2-gles2-template.desktop"
+        }
+    },
+    "maintainer": "Simon Raffeiner <sturmflut@lieberbiber.de>",
+    "name": "sdl2-gles2-template.sturmflut",
+    "title": "sdl2-gles2-template",
+    "version": "0.1"
+}

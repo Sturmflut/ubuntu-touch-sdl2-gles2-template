@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=SDL2 Demo
+Comment=An SDL2 demo application
+Exec=sdl2-gles2-template
+Icon=sdl2-gles2-template.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Supported-Orientations=portrait
+Name[en_US]=sdl2-gles2-template.desktop
